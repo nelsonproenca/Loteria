@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row w-100" style="height: 50px;">
+        <div class="col-md padding">
+            <h4>Combinações</h4>
+        </div>
+    </div>
+    <div class="row w-100">
+        <div class="col-md padding">
+            <p>Aqui mostra as 2 possiveis combinações de jogos para com um link para mostrar quantas precisar.</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row w-100">
+            <app-resultado [Sorteio]="numerosSorteados2"></app-resultado>
+        </div>
+        <div class="row w-100">
+            <app-resultado [Sorteio]="numerosSorteados1"></app-resultado>
+        </div>
+    </div>
+    <div class="row w-100">
+        <div class="col-md p-3">
+            <a [routerLink]="['/gerar-combinacoes']" class="btn btn-link" href="#">Gerar novas combinações ...</a>
+        </div>
+    </div>
+</div>

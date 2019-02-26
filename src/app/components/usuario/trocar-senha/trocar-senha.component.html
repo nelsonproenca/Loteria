@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <h1 class="display-4">Trocar de senha.</h1>
+    <p class="lead">Preencha comm o e-mail cadastrado para receber o link de troca de senha.</p>
+    <hr class="my-4">
+    <div class="form-group mx-auto">
+        <label for="email" >E-mail:</label>
+        <input type="email" class="form-control" id="email" placeholder="Entre com o e-mail.">
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" name="password" formControlName="password" placeholder="Entre com a senha.">
+            </div>
+            <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+                <div *ngIf="loginForm.controls['password'].errors.required">
+                    Senha é requerida.
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="rePassword">Repetir Senha:</label>
+                <input type="password" class="form-control" name="rePassword" formControlName="rePassword" placeholder="Entre com a senha." onchange="">
+            </div>
+            <div *ngIf="loginForm.controls['rePassword'].invalid && (loginForm.controls['rePassword'].dirty || loginForm.controls['rePassword'].touched)" class="alert alert-danger">
+                <div *ngIf="loginForm.controls['rePassword'].errors.required">
+                    Repetir Senha é requerido.
+                </div>
+            </div>
+            <div *ngIf="loginForm.controls['password'].value !== loginForm.controls['rePassword'].value" class="alert alert-danger">
+                Senhas não conferem.
+            </div>
+
+        </div>
+    </div>
+
+    <a class="btn btn-primary btn-lg" href="#" role="button">Alterar Senha</a>
+</div>

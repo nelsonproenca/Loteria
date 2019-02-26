@@ -1,0 +1,46 @@
+<table class="table table-hover w-100">
+  	<thead>
+      	<tr class="text-center">
+          	<th >Sorteio</th>
+          	<th >Data</th>
+          	<th colspan="5">Numeros</th>
+          	<th colspan="2">Estrelas</th>
+          	<th colspan="2">Ações</th>
+      	</tr>
+      	<tr class="text-center">
+          	<th ></th>
+          	<th ></th>
+          	<th>1o</th>
+          	<th>2o</th>
+          	<th>3o</th>
+          	<th>4o</th>
+          	<th>5o</th>
+          	<th>1o</th>
+          	<th>2o</th>
+          	<th></th>
+      	</tr>
+  	</thead>
+  	<tbody>
+      	<tr class="text-center" *ngFor="let sorteio of listaSorteio">
+          	<td >{{ sorteio.NumeroSorteio }}</td>
+          	<td >{{ sorteio.DataSorteio }}</td>
+          	<td>{{ sorteio.Numero1o }}</td>
+          	<td>{{ sorteio.Numero2o }}</td>
+          	<td>{{ sorteio.Numero3o }}</td>
+          	<td>{{ sorteio.Numero4o }}</td>
+          	<td>{{ sorteio.Numero5o }}</td>
+          	<td>{{ sorteio.Estrela1o }}</td>
+          	<td>{{ sorteio.Estrela2o }}</td>
+          	<td>
+                <a [routerLink]="['/edit', sorteio._id]" class="btn btn-primary" [ngClass]="{'visible': buttonEdit == 'S','invisible': buttonEdit == 'N'}">
+                  <i class="material-icons md-36">edit</i>
+                  Editar
+                </a>
+                <a (click)="deletar(sorteio._id)" class="btn btn-danger" [ngClass]="{'visible': buttonDelete == 'S','invisible': buttonDelete == 'N'}">
+                    <i class="material-icons md-36">delete</i>
+                  Excluir
+                </a>
+            </td>
+      	</tr>
+  	</tbody>
+</table>

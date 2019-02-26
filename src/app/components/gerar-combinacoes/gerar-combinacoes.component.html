@@ -1,0 +1,42 @@
+<div>
+    <h1 class="display-4">Gerar Combinações</h1>
+    <hr class="my-4" />
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="gerarForm" novalidate>
+            <fieldset>
+                <legend></legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-md-12">Quantidade de combinações:</label>
+                            <input type="number" min="1" max="10" class="form-control" name="qtde_combinacoes" formControlName="qtde_combinacoes" #qtde_combinacoes />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-md-12">Quantidade de numeros:</label>
+                            <input type="number" min="1" max="15" class="form-control" name="qtde_numeros" formControlName="qtde_numeros" #qtde_numeros />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" (click)="gerar()">
+                                <i class="material-icons">class</i>
+                                Gerar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="container">
+            <app-lista-combinacoes [listaSorteio]='sorteios' [buttonAdd]='addButton'></app-lista-combinacoes>
+        </div>
+    </div>
+</div>

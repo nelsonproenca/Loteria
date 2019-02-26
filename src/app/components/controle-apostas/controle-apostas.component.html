@@ -1,0 +1,71 @@
+<div>
+    <h2 class="display-4">Controle de Apostas</h2>
+    <hr class="my-4" />
+</div>
+<div class="card">
+    <div class="card-body">
+        <fieldset class="border">
+            <legend class="pl-3">Filtros</legend>
+            <form class="form-inline p-4" [formGroup]="procurarForm" novalidate >
+                <div class="form-group mb-2">
+                    <label>Sorteio:</label>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <select class="form-control" formControlName="numero_sorteio" #numero_sorteio [(ngModel)]="Sorteio">
+                        <option *ngFor="let item of sorteios" [value]="item">{{item}}</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2" (click)="pesquisarSorteio()">
+                    <i class="material-icons">search</i>
+                    Procurar
+                </button>
+            </form>
+        </fieldset>
+        <hr class="my-4" />
+
+        <div class="d-flex bd-highlight mb-3 bg-light rounded">
+            <div class="mr-auto p-2 bd-highlight">
+                <h3 class="display-5">Resultado</h3>
+            </div>
+            <div class="p-2 bd-highlight"></div>
+            <div class="p-2 bd-highlight">
+                <h3 class="display-5">Combinações jogadas</h3>
+            </div>
+        </div>
+
+        <hr class="my-2" />
+
+        <div class="container float-left mr-4" style="width: 35%;">
+            <app-resultado [Sorteio]="numerosSorteados"></app-resultado>
+        </div>
+		    <div class="container" style="width: 100%;">
+			    <app-lista-combinacoes [listaSorteio]='sorteios' [buttonAdd]='addButton'></app-lista-combinacoes>
+		    </div>
+
+        <hr class="my-4" />
+
+        <div class="d-flex bd-highlight mb-3 bg-light rounded">
+            <h3 class="display-5 p-2">Premios Ganhos</h3>
+        </div>
+        <div class="p-4">
+            <table class="table table-bordered table-reponsive">
+                <caption>
+                  Resumo do sorteio
+                  <p>* Valor todos em euros</p>
+                </caption>
+                <tr>
+                    <th style="width: 20%;">Sorteio:</th><td></td>
+                    <th style="width: 20%;">Data:</th><td></td>
+                </tr>
+                <tr>
+                    <th>Maior Premio*:</th><td></td>
+                    <th>Maior Premio*:</th><td></td>
+                </tr>
+                <tr>
+                    <th>Valor da aposta*:</th><td></td>
+                    <th>Premio Ganho*:</th><td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

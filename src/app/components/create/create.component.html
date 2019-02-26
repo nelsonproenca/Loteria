@@ -1,0 +1,134 @@
+<div>
+    <h1 class="display-4">Novo Sorteio</h1>
+    <hr class="my-4" />
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="sorteioForm" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4">Numero Sorteio:</label>
+                        <input type="text" class="form-control" name="numero_sorteio" formControlName="numero_sorteio" #numero_sorteio />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_sorteio'].invalid && (sorteioForm.controls['numero_sorteio'].dirty || sorteioForm.controls['numero_sorteio'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_sorteio'].errors.required">
+                            Numero do Sorteio é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4">Data</label>
+                        <input type="date" class="form-control" name="data_sorteio" formControlName="data_sorteio" #data_sorteio />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['data_sorteio'].invalid && (sorteioForm.controls['data_sorteio'].dirty || sorteioForm.controls['data_sorteio'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['data_sorteio'].errors.required">
+                            Data do Sorteio é requerido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Números:</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="col-md-4">1o</label>
+                        <input type="number" min="1" max="50" class="form-control" name="numero_1o" formControlName="numero_1o" #numero_1o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_1o'].invalid && (sorteioForm.controls['numero_1o'].dirty || sorteioForm.controls['numero_1o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_1o'].errors.required">
+                          1o é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="col-md-4">2o</label>
+                        <input type="number" min="1" max="50" class="form-control" name="numero_2o" formControlName="numero_2o" #numero_2o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_2o'].invalid && (sorteioForm.controls['numero_2o'].dirty || sorteioForm.controls['numero_2o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_2o'].errors.required">
+                          2o é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="col-md-4">3o</label>
+                        <input type="number" min="1" max="50" class="form-control" name="numero_3o" formControlName="numero_3o" #numero_3o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_3o'].invalid && (sorteioForm.controls['numero_3o'].dirty || sorteioForm.controls['numero_3o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_3o'].errors.required">
+                            3o é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="col-md-4">4o</label>
+                        <input type="number" min="1" max="50" class="form-control" name="numero_4o" formControlName="numero_4o" #numero_4o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_4o'].invalid && (sorteioForm.controls['numero_4o'].dirty || sorteioForm.controls['numero_4o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_4o'].errors.required">
+                            4o é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="col-md-4">5o</label>
+                        <input type="number" min="1" max="50" class="form-control" name="numero_5o" formControlName="numero_5o" #numero_5o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['numero_5o'].invalid && (sorteioForm.controls['numero_5o'].dirty || sorteioForm.controls['numero_5o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['numero_5o'].errors.required">
+                            5o é requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Estrelas:</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="col-md-4">1o</label>
+                        <input type="number" min="1" max="12" class="form-control" name="estrela_1o" formControlName="estrela_1o" #estrela_1o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['estrela_1o'].invalid && (sorteioForm.controls['estrela_1o'].dirty || sorteioForm.controls['estrela_1o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['estrela_1o'].errors.required">
+                            Primeira Estrela é requerida.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="col-md-4">2o</label>
+                        <input type="number" min="1" max="12" class="form-control" name="estrela_2o" formControlName="estrela_2o" #estrela_2o />
+                    </div>
+                    <div *ngIf="sorteioForm.controls['estrela_2o'].invalid && (sorteioForm.controls['estrela_2o'].dirty || sorteioForm.controls['estrela_2o'].touched)" class="alert alert-danger">
+                        <div *ngIf="sorteioForm.controls['estrela_1o'].errors.required">
+                            Segunda Estrela é requerida.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="adicionarSorteio()" [disabled]="sorteioForm.pristine || sorteioForm.invalid">
+                    <i class="material-icons">save_alt</i>
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

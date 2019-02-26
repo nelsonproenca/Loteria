@@ -1,0 +1,51 @@
+<div>
+    <h1 class="display-4">Todos Sorteios</h1>
+    <hr class="my-4" />
+</div>
+
+<div class="card">
+    <div class="card-body">
+		<form [formGroup]="procurarForm" novalidate>
+			<fieldset>
+				<legend>Filtros</legend>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="col-md-5">Sorteio:</label>
+							<input type="text" class="form-control" name="numero_sorteio" formControlName="numero_sorteio" #numero_sorteio />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="col-md-5">Data:</label>
+							<input type="date" class="form-control" name="data_sorteio" formControlName="data_sorteio" #data_sorteio />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="col-md-5">Numero:</label>
+							<input type="number" min="1" max="50" class="form-control" name="numero_valor" formControlName="numero_valor" #numero_valor />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="col-md-5">Estrela:</label>
+							<input type="number" min="1" max="12" class="form-control" name="estrela_valor" formControlName="estrela_valor" #estrela_valor />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary" (click)="pesquisarSorteio()">
+                <i class="material-icons">search</i>
+                Procurar
+              </button>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<app-lista-sorteio [listaSorteio]='sorteios' [buttonEdit]='editButton' [buttonDelete]='deleteButton' [buttonAdd]=''></app-lista-sorteio>
+	</div>
+</div>
