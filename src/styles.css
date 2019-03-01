@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/ng2-slim-loading-bar/style.css";
+
+label .name-icon {
+  font-size: 1rem;
+  margin-left: 5px;
+  float: right;
+  width: 150px;
+  text-align: left;
+}

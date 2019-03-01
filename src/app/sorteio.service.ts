@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SorteioService {
 
-  url = 'http://localhost:3000/api/sorteios';
+  url: String = "http://localhost:3000/api/sorteios";
 
   constructor( private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class SorteioService {
   }
 
   getAll() {
-    return this.http.get(`${this.url}`);
+    return this.http.get<SorteioModel[]>(`${this.url}`);
   }
 
   getById(id) {
@@ -23,14 +23,20 @@ export class SorteioService {
   }
 
   edit(id) {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get<SorteioModel>(`${this.url}/${id}`);
   }
 
   update(sorteioModel: SorteioModel, id) {
-    this.http.put(`${this.url}/${id}`, sorteioModel).subscribe(res => console.log('Done'));
+    this.http.put(`${this.url}/${id}`, sorteioModel).subscribe((res) => {
+      return true;
+    });
+  }
+
+  search(campo:string, valor:any) {
+    return this.http.get<NumeroSorteioViewModel[]>(`${this.url}/pesquisa/${campo}/${valor}`);
   }
 
   delete(id) {
-    return this.http.delete(`${this.url}/${id}`).subscribe(res => console.log('Done'));
+    this.http.delete(`${this.url}/${id}`).subscribe(res => console.log('Done'));
   }
 }

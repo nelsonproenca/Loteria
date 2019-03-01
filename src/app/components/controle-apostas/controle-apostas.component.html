@@ -11,8 +11,8 @@
                     <label>Sorteio:</label>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <select class="form-control" formControlName="numero_sorteio" #numero_sorteio [(ngModel)]="Sorteio">
-                        <option *ngFor="let item of sorteios" [value]="item">{{item}}</option>
+                    <select class="form-control" formControlName="numeroSorteio" #numeroSorteio [(ngModel)]="numeroSorteio">
+                        <option *ngFor="let item of listaSorteios" [value]="item.Id">{{item.NumeroSorteio}}</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2" (click)="pesquisarSorteio()">

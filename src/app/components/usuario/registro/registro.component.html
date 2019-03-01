@@ -1,9 +1,12 @@
 <div class="container d-flex justify-content-center">
-    <div class="card shadow-lg p-3 mb-5 mt-5 bg-white rounded w-50">
+    <div class="card shadow-lg p-3 mb-5 mt-5 bg-white rounded w-100">
         <div class="card-header">
             Registro
         </div>
         <div class="card-body">
+            <div *ngIf="result !== null" class="alert alert-danger">
+                {{result}}
+            </div>
             <div class="dropdown-mwnu p-4">
                 <form  [formGroup]="registroForm" novalidate>
                     <div class="form-group">
@@ -21,54 +24,75 @@
                     </div>
                     <div *ngIf="registroForm.controls['email'].invalid && (registroForm.controls['email'].dirty || registroForm.controls['email'].touched)" class="alert alert-danger">
                         <div *ngIf="registroForm.controls['email'].errors.required">
-                            Nome é requerido.
+                            E-mail é requerido.
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="username">User Name:</label>
-                        <input type="text" class="form-control" id="username" placeholder="Entre com o user name.">
-                    </div>
-                    <div *ngIf="registroForm.controls['username'].invalid && (registroForm.controls['username'].dirty || registroForm.controls['username'].touched)" class="alert alert-danger">
-                        <div *ngIf="registroForm.controls['username'].errors.required">
-                            Nome é requerido.
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="username">User Name:</label>
+                                <input type="text" class="form-control" id="username" formControlName="username" placeholder="Entre com o user name.">
+                            </div>
+                            <div *ngIf="registroForm.controls['username'].invalid && (registroForm.controls['username'].dirty || registroForm.controls['username'].touched)" class="alert alert-danger">
+                                <div *ngIf="registroForm.controls['username'].errors.required">
+                                  User Name é requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="senha">Senha:</label>
+                                <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="Entre com  a senha.">
+                            </div>
+                            <div *ngIf="registroForm.controls['senha'].invalid && (registroForm.controls['senha'].dirty || registroForm.controls['senha'].touched)" class="alert alert-danger">
+                                <div *ngIf="registroForm.controls['senha'].errors.required">
+                                  Senha é requerido.
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="senha">Senha:</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Entre com  a senha.">
-                    </div>
-                    <div *ngIf="registroForm.controls['senha'].invalid && (registroForm.controls['senha'].dirty || registroForm.controls['senha'].touched)" class="alert alert-danger">
-                        <div *ngIf="registroForm.controls['senha'].errors.required">
-                            Nome é requerido.
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="dataNascimento">Data de Nascimento:</label>
+                                <input type="date" class="form-control" id="dataNascimento" formControlName="dataNascimento">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="telemovel">Telemovel:</label>
+                                <input type="tel" class="form-control" id="telemovel" formControlName="telemovel" placeholder="Entre com o telemovel." pattern="">
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="dataNascimento">Data de Nascimento:</label>
-                        <input type="date" class="form-control" id="dataNascimento">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="pais">Pais:</label>
+                                <select id="pais" class="custom-select" formControlName="pais">
+                                    <option selected> Escolha um pais</option>
+                                    <option value="1">Brasil</option>
+                                    <option value="2">Portugal</option>
+                                    <option value="3">Polonia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cidade">Cidade:</label>
+                                <select id="cidade" class="custom-select" formControlName="cidade">
+                                    <option selected> Escolha uma cidade</option>
+                                    <option value="1">São Paulo - SP</option>
+                                    <option value="2">Belo Horizonte - MG</option>
+                                    <option value="3">Porto Alegre - RS</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="telemovel">Telemovel:</label>
-                        <input type="tel" class="form-control" id="telemovel" placeholder="Entre com o telemovel." pattern="">
-                    </div>
-                    <div class="form-group">
-                        <label for="telemovel">Pais:</label>
-                        <select id="pais" class="custom-select">
-                          <option selected> Escolha um pais</option>
-                          <option value="1">Brasil</option>
-                          <option value="2">Portugal</option>
-                          <option value="3">Polonia</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="telemovel">Cidade:</label>
-                        <select id="pais" class="custom-select">
-                            <option selected> Escolha uma cidade</option>
-                            <option value="1">São Paulo - SP</option>
-                            <option value="2">Belo Horizonte - MG</option>
-                            <option value="3">Porto Alegre - RS</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" (click)="registrar()" class="btn btn-primary" [disabled]="registroForm.pristine || registroForm.invalid">
+                        <i class="material-icons">save_alt</i>
+                        <label class="name-icon">Alterar Senha</label>
+                    </button>
                 </form>
             </div>
         </div>

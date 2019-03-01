@@ -28,12 +28,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /**
-   * submit
-   */
   public submit() {
     this.auth.login(this.username, this.password).pipe(first()).subscribe(
-      result => this.router.navigate(['login']),
+      result => {
+        if (this.auth.LoggedIn) {
+          let redirect = this.auth.redirectUrl ? this.auth.redirectUrl : '/dashboard';
+
+          this.router.navigate([redirect]);
+        }
+      },
       err => this.error = 'Não foi possivel autenticar'
     );
   }

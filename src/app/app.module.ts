@@ -29,17 +29,18 @@ import { ListaCombinacoesComponent } from './components/lista-combinacoes/lista-
 import { LoginComponent } from './components/usuario/login/login.component';
 import { RegistroComponent } from './components/usuario/registro/registro.component';
 import { TrocarSenhaComponent } from './components/usuario/trocar-senha/trocar-senha.component';
+import { AppPasswordDirective } from './app-password.directive';
 
 const routes: Routes = [
     {
         path: 'create',
         component: CreateComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         path: 'edit/:id',
         component: EditComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         path: 'index',
@@ -52,30 +53,26 @@ const routes: Routes = [
     {
         path: 'controle-apostas',
         component: ControleApostasComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         path: 'gerar-combinacoes',
         component: GerarCombinacoesComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
-      path: 'login',
-      component: LoginComponent
+        path: 'login',
+        component: LoginComponent
     },
     {
-      path: 'registro',
-      component: RegistroComponent
+        path: 'registro',
+        component: RegistroComponent
     },
     {
-      path: 'trocar-senha',
-      component: TrocarSenhaComponent
+        path: 'trocar-senha',
+        component: TrocarSenhaComponent
     }
 ];
-
-export function ObterToken() {
-  return localStorage.getItem("TokenJwt");
-}
 
 @NgModule({
   declarations: [
@@ -95,7 +92,8 @@ export function ObterToken() {
     ListaCombinacoesComponent,
     LoginComponent,
     RegistroComponent,
-    TrocarSenhaComponent
+    TrocarSenhaComponent,
+    AppPasswordDirective
   ],
   imports: [
     BrowserModule,
@@ -106,7 +104,9 @@ export function ObterToken() {
     ReactiveFormsModule,
     JwtModule.forRoot({
       config : {
-        tokenGetter: ObterToken,
+        tokenGetter: () => {
+          return localStorage.getItem("TokenJwt");
+        },
         whitelistedDomains: ['localhost:3000'],
         blacklistedRoutes: ['localhost:3000/users']
       }
