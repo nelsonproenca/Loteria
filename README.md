@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LotariaSPA
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
@@ -25,3 +26,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# Loteria
+SPA para listar os ultimos numeros sorteados da loteria. Consultar os nummeros que mais sairam nos ultimos sorteios. Ferramenta para calcular os melhores numeros para fazer a uma aposta. Possibilidade de escolher a quantidade de jogos gerados automaticamente. 
+
+* HTML5 
+* Bootstrap 
+* Express
+* MongoDB
+* Angular 6
+* Node.js
+>>>>>>> fc9dca5e4dc01f10882a726f1cb78e2cd897aa08
